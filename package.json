@@ -1,6 +1,6 @@
 {
   "name": "jbricks",
-  "version": "1.0.2",
+  "version": "1.0.11",
   "description": "Render dynamic component with JSON structure with TypeScript",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -21,8 +21,12 @@
   ],
   "author": "José Fredes",
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
   "devDependencies": {
+    "@types/react": "^19.0.1",
     "typescript": "^5.0.0"
   }
 }

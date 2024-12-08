@@ -7,7 +7,10 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "outDir": "./dist"
+    "jsx": "react",
+    "outDir": "./dist",
+    "typeRoots": ["./node_modules/@types", "./types"],
+    "moduleResolution": "node"
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*", "types"]
 }

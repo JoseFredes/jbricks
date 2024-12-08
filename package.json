@@ -11,13 +11,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/tuusuario/jbricks.git"
+    "url": "https://github.com/JoseFredes/jbricks.git"
   },
   "keywords": [
     "json",
     "dynamic-components",
     "rendering",
-    "typescript"
+    "typescript",
+    "react",
+    "vue"
   ],
   "author": "José Fredes",
   "license": "MIT",
@@ -28,5 +30,10 @@
   "devDependencies": {
     "@types/react": "^19.0.1",
     "typescript": "^5.0.0"
-  }
+  },
+  "files": [                      
+    "dist/**/*",
+    "README.md",
+    "LICENSE"
+  ]
 }

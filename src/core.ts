@@ -1,60 +1,55 @@
-export interface JSONComponent {
-  type: string;
-  props?: Record<string, any>;
-  children?: JSONComponent[];
-}
+type Props = {
+  [key: string]: any;
+  className?: string;
+  style?: Record<string, string | number>;
+};
 
-type ComponentRenderer = (props: Record<string, any>) => HTMLElement;
-
-const registeredComponents: Record<string, ComponentRenderer> = {};
-
-/**
- * Registra un componente personalizado.
- * @param type - Nombre del componente.
- * @param renderer - Función que genera el DOM del componente.
- */
-export function registerComponent(
-  type: string,
-  renderer: ComponentRenderer
-): void {
-  registeredComponents[type] = renderer;
-}
+type JSONComponent = {
+  type: string; // Nombre del elemento (e.g., div, span, h1)
+  props?: Props; // Propiedades del elemento
+  children?: JSONComponent[] | string[]; // Hijos del elemento
+};
 
 /**
- * Renderiza un componente desde un JSON.
- * @param json - La definición del componente en JSON.
- * @param container - El contenedor donde se renderizará.
+ * Renderiza un componente desde JSON.
+ * @param json - Definición del componente en JSON.
+ * @returns HTMLElement - Nodo DOM generado.
  */
-export function renderComponent(
-  json: JSONComponent,
-  container: HTMLElement
-): void {
-  const { type, props, children } = json;
+export function renderComponentFromJSON(json: JSONComponent): HTMLElement {
+  const { type, props = {}, children = [] } = json;
 
-  if (registeredComponents[type]) {
-    const customElement = registeredComponents[type](props || {});
-    container.appendChild(customElement);
-
-    if (children) {
-      children.forEach((child) => renderComponent(child, customElement));
-    }
-    return;
-  }
-
+  // Crear un elemento HTML estándar
   const element = document.createElement(type);
 
-  Object.entries(props || {}).forEach(([key, value]) => {
+  // Asignar propiedades como `className` y `style`
+  if (props.className) {
+    element.className = props.className;
+  }
+  if (props.style) {
+    Object.entries(props.style).forEach(([key, value]) => {
+      (element.style as any)[key] = value;
+    });
+  }
+
+  // Asignar otros atributos o eventos
+  Object.entries(props).forEach(([key, value]) => {
     if (key.startsWith("on")) {
-      element.addEventListener(
-        key.slice(2).toLowerCase(),
-        value as EventListener
-      );
-    } else {
-      (element as any)[key] = value;
+      // Manejo de eventos como onClick
+      const eventName = key.slice(2).toLowerCase();
+      element.addEventListener(eventName, value);
+    } else if (key !== "className" && key !== "style") {
+      element.setAttribute(key, value);
     }
   });
 
-  (children || []).forEach((child) => renderComponent(child, element));
+  // Renderizar hijos
+  children.forEach((child) => {
+    const childElement =
+      typeof child === "string"
+        ? document.createTextNode(child)
+        : renderComponentFromJSON(child);
+    element.appendChild(childElement);
+  });
 
-  container.appendChild(element);
+  return element;
 }

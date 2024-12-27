@@ -21,7 +21,7 @@ export function renderComponentFromJSON(json: JSONComponent): HTMLElement {
   // Create standard HTML element
   const element = document.createElement(type);
 
-  // Assign className and style props
+  // Assign className and style properties
   if (props.className) {
     element.className = props.className;
   }

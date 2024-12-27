@@ -2,7 +2,7 @@ import React, { JSX } from "react";
 import { renderComponentFromJSON } from "../core";
 
 /**
- * Adaptador para renderizar componentes en React.
+ * Adapter to render components in React.
  * @param json - Definición JSON del componente.
  * @returns JSX.Element - Componente React.
  */

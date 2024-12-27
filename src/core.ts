@@ -18,10 +18,10 @@ type JSONComponent = {
 export function renderComponentFromJSON(json: JSONComponent): HTMLElement {
   const { type, props = {}, children = [] } = json;
 
-  // Crear un elemento HTML estándar
+  // Create standard HTML element
   const element = document.createElement(type);
 
-  // Asignar propiedades como `className` y `style`
+  // Assign className and style props
   if (props.className) {
     element.className = props.className;
   }

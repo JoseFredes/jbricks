@@ -1,14 +1,14 @@
 import { renderComponentFromJSON } from "../core";
 
 /**
- * Adaptador para renderizar componentes en Vue.
- * @param json - Definición JSON del componente.
- * @returns {Object} - Componente Vue.
+ * Adapter to render components in Vue.
+ * @param json - JSON definition of the component.
+ * @returns {Object} - Vue component.
  */
 export function renderVueComponent(json: any) {
   const domNode = renderComponentFromJSON(json);
 
-  // Devuelve un componente Vue que usa el nodo DOM como innerHTML
+  // Returns a Vue component that uses the DOM node as innerHTML
   return {
     render(h: any) {
       return h("div", {

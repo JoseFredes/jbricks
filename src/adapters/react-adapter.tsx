@@ -3,7 +3,7 @@ import { renderComponentFromJSON } from "../core";
 
 /**
  * Adapter to render components in React.
- * @param json - Definición JSON del componente.
+ * @param json - JSON definition of the component.
  * @returns JSX.Element - Componente React.
  */
 export function renderReactComponent(json: any): JSX.Element {

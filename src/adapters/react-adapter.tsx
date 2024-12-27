@@ -2,14 +2,14 @@ import React, { JSX } from "react";
 import { renderComponentFromJSON } from "../core";
 
 /**
- * Adaptador para renderizar componentes en React.
- * @param json - Definición JSON del componente.
- * @returns JSX.Element - Componente React.
+ * Adapter to render components in React.
+ * @param json - JSON definition of the component.
+ * @returns JSX.Element - React component.
  */
 export function renderReactComponent(json: any): JSX.Element {
   const domNode = renderComponentFromJSON(json);
 
-  // Devuelve un componente React usando `dangerouslySetInnerHTML`
+  // Returns a React component using `dangerouslySetInnerHTML`.
   return React.createElement("div", {
     dangerouslySetInnerHTML: { __html: domNode.outerHTML },
   });

@@ -9,7 +9,7 @@ import { renderComponentFromJSON } from "../core";
 export function renderReactComponent(json: any): JSX.Element {
   const domNode = renderComponentFromJSON(json);
 
-  // Devuelve un componente React usando `dangerouslySetInnerHTML`
+  // Returns a React component using `dangerouslySetInnerHTML`.
   return React.createElement("div", {
     dangerouslySetInnerHTML: { __html: domNode.outerHTML },
   });

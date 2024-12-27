@@ -2,7 +2,7 @@ import { renderComponentFromJSON } from "../core";
 
 /**
  * Adapter to render components in Vue.
- * @param json - Definición JSON del componente.
+ * @param json - JSON definition of the component.
  * @returns {Object} - Componente Vue.
  */
 export function renderVueComponent(json: any) {

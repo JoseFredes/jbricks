@@ -42,7 +42,7 @@ export function renderComponentFromJSON(json: JSONComponent): HTMLElement {
     }
   });
 
-  // Renderizar hijos
+  // Render children
   children.forEach((child) => {
     const childElement =
       typeof child === "string"

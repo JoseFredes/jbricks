@@ -31,7 +31,7 @@ export function renderComponentFromJSON(json: JSONComponent): HTMLElement {
     });
   }
 
-  // Asignar otros atributos o eventos
+  // Assign other props and event listeners
   Object.entries(props).forEach(([key, value]) => {
     if (key.startsWith("on")) {
       // Manejo de eventos como onClick

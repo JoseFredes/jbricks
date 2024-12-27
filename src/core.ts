@@ -6,7 +6,7 @@ type Props = {
 
 type JSONComponent = {
   type: string; // Element Name (e.g., div, span, h1)
-  props?: Props; // Propiedades del elemento
+  props?: Props; // Element props
   children?: JSONComponent[] | string[]; // Elements children
 };
 

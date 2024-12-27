@@ -8,7 +8,7 @@ import { renderComponentFromJSON } from "../core";
 export function renderVueComponent(json: any) {
   const domNode = renderComponentFromJSON(json);
 
-  // Devuelve un componente Vue que usa el nodo DOM como innerHTML
+  // Returns a Vue component that uses the DOM node as innerHTML
   return {
     render(h: any) {
       return h("div", {

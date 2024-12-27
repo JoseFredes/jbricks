@@ -12,7 +12,7 @@ type JSONComponent = {
 
 /**
  * Render component from JSON.
- * @param json -Component definition of JSON.
+ * @param json - Component definition of JSON.
  * @returns HTMLElement - DOM  node generated.
  */
 export function renderComponentFromJSON(json: JSONComponent): HTMLElement {

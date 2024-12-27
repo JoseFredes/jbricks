@@ -34,7 +34,7 @@ export function renderComponentFromJSON(json: JSONComponent): HTMLElement {
   // Assign other props and event listeners
   Object.entries(props).forEach(([key, value]) => {
     if (key.startsWith("on")) {
-      // Manejo de eventos como onClick
+      // Event listener props
       const eventName = key.slice(2).toLowerCase();
       element.addEventListener(eventName, value);
     } else if (key !== "className" && key !== "style") {

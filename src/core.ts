@@ -5,23 +5,23 @@ type Props = {
 };
 
 type JSONComponent = {
-  type: string; // Nombre del elemento (e.g., div, span, h1)
-  props?: Props; // Propiedades del elemento
-  children?: JSONComponent[] | string[]; // Hijos del elemento
+  type: string; // Element Name (e.g., div, span, h1)
+  props?: Props; // Element props
+  children?: JSONComponent[] | string[]; // Elements children
 };
 
 /**
- * Renderiza un componente desde JSON.
- * @param json - Definición del componente en JSON.
- * @returns HTMLElement - Nodo DOM generado.
+ * Render component from JSON.
+ * @param json -Component definition of JSON.
+ * @returns HTMLElement - DOM  node generated.
  */
 export function renderComponentFromJSON(json: JSONComponent): HTMLElement {
   const { type, props = {}, children = [] } = json;
 
-  // Crear un elemento HTML estándar
+  // Create standard HTML element
   const element = document.createElement(type);
 
-  // Asignar propiedades como `className` y `style`
+  // Assign className and style props
   if (props.className) {
     element.className = props.className;
   }
@@ -31,10 +31,10 @@ export function renderComponentFromJSON(json: JSONComponent): HTMLElement {
     });
   }
 
-  // Asignar otros atributos o eventos
+  // Assign other props and event listeners
   Object.entries(props).forEach(([key, value]) => {
     if (key.startsWith("on")) {
-      // Manejo de eventos como onClick
+      // Event listener props
       const eventName = key.slice(2).toLowerCase();
       element.addEventListener(eventName, value);
     } else if (key !== "className" && key !== "style") {
@@ -42,7 +42,7 @@ export function renderComponentFromJSON(json: JSONComponent): HTMLElement {
     }
   });
 
-  // Renderizar hijos
+  // Render children
   children.forEach((child) => {
     const childElement =
       typeof child === "string"

@@ -11,9 +11,9 @@ type JSONComponent = {
 };
 
 /**
- * Renderiza un componente desde JSON.
- * @param json - Definición del componente en JSON.
- * @returns HTMLElement - Nodo DOM generado.
+ * Render component from JSON.
+ * @param json -Component definition of JSON.
+ * @returns HTMLElement - DOM  node generated.
  */
 export function renderComponentFromJSON(json: JSONComponent): HTMLElement {
   const { type, props = {}, children = [] } = json;

@@ -17,4 +17,11 @@ declare module "jbricks" {
    * @returns HTMLElement - Generated DOM node.
    */
   export function renderComponentFromJSON(json: JSONComponent): HTMLElement;
+
+  /**
+   * Renders a React component from JSON.
+   * @param json - JSON definition of the component.
+   * @returns JSX.Element - React component.
+   */
+  export function renderReactComponent(json: JSONComponent): JSX.Element;
 }

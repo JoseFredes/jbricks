@@ -14,7 +14,7 @@ declare module "jbricks" {
   /**
    * Renders a component from JSON.
    * @param json - JSON definition of the component.
-   * @returns HTMLElement - Nodo DOM generado.
+   * @returns HTMLElement - Generated DOM node.
    */
   export function renderComponentFromJSON(json: JSONComponent): HTMLElement;
 }

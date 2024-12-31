@@ -12,7 +12,7 @@ declare module "jbricks" {
   };
 
   /**
-   * Renderiza un componente desde JSON.
+   * Renders a component from JSON.
    * @param json - Definición JSON del componente.
    * @returns HTMLElement - Nodo DOM generado.
    */

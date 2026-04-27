@@ -1,7 +1,7 @@
 {
   "name": "jbricks",
-  "version": "1.1.3",
-  "description": "Render dynamic component with JSON structure with TypeScript",
+  "version": "1.2.0",
+  "description": "Render dynamic UI components from JSON structures. Supports vanilla DOM, React, and Vue 3.",
   "main": "dist/index.js",
   "types": "types/jbricks.d.ts",
   "scripts": {
@@ -23,13 +23,22 @@
   ],
   "author": "José Fredes",
   "license": "MIT",
-  "dependencies": {
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+  "peerDependencies": {
+    "react": ">=17.0.0",
+    "react-dom": ">=17.0.0",
+    "vue": ">=3.0.0"
+  },
+  "peerDependenciesMeta": {
+    "react": { "optional": true },
+    "react-dom": { "optional": true },
+    "vue": { "optional": true }
   },
   "devDependencies": {
     "@types/react": "^19.0.1",
-    "typescript": "^5.0.0"
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "typescript": "^5.0.0",
+    "vue": "^3.0.0"
   },
   "files": [
     "dist/**/*",

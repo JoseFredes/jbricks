@@ -1,4 +1,5 @@
 export { renderComponentFromJSON } from "./core";
-export * from "./adapters/react-adapter";
-export * from "./adapters/vue-adapter";
-export * from "./adapters/generic-adapter";
+export type { Props, JSONComponent } from "./types";
+export { renderReactComponent } from "./adapters/react-adapter";
+export { renderVueComponent } from "./adapters/vue-adapter";
+export { renderDOMComponent } from "./adapters/generic-adapter";

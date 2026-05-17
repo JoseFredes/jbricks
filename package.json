@@ -6,7 +6,9 @@
   "types": "types/jbricks.d.ts",
   "scripts": {
     "build": "tsc",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
     "prepare": "npm run build"
   },
   "repository": {
@@ -29,15 +31,26 @@
     "vue": ">=3.0.0"
   },
   "peerDependenciesMeta": {
-    "react": { "optional": true },
-    "react-dom": { "optional": true },
-    "vue": { "optional": true }
+    "react": {
+      "optional": true
+    },
+    "react-dom": {
+      "optional": true
+    },
+    "vue": {
+      "optional": true
+    }
   },
   "devDependencies": {
+    "@testing-library/react": "^16.3.2",
     "@types/react": "^19.0.1",
+    "@vitest/coverage-v8": "^2.1.9",
+    "@vue/test-utils": "^2.4.10",
+    "jsdom": "^25.0.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "typescript": "^5.0.0",
+    "vitest": "^2.1.9",
     "vue": "^3.0.0"
   },
   "files": [
